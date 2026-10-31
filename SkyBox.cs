@@ -89,10 +89,27 @@ namespace Graphics1
                 out vec4 pixelColor;
                 in vec3 texCoords;
                 uniform samplerCube skybox;
-                
+
                 void main()
                 {
-                    pixelColor = texture(skybox, texCoords);
+                    // Direction vector points below horizon when texCoords.y < 0
+                    if (texCoords.y < 0.0)
+                    {
+                        // Option A: Smooth fade into a dark floor color
+                        vec4 floorColor = vec4(0.04, 0.04, 0.06, 1.0);
+                        float factor = clamp(-texCoords.y * 10.0, 0.0, 1.0);
+                        pixelColor = mix(texture(skybox, texCoords), floorColor, factor);
+                
+                        // Option B: Hard cut to solid color/black
+                        // pixelColor = vec4(0.05, 0.05, 0.05, 1.0);
+                
+                        // Option C: Completely discard fragments (shows GL.ClearColor)
+                        // discard;
+                    }
+                    else
+                    {
+                        pixelColor = texture(skybox, texCoords);
+                    }
                 }
             ";
 
