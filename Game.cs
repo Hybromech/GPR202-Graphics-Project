@@ -428,27 +428,6 @@ namespace Graphics1
             double t = stopwatch.Elapsed.TotalSeconds;
 
             // ---$# Main Camera Code #$---
-            // -------------------------------------------------------------------------
-            // RESPONSIVE VIEWPORT & CAMERA ZOOM (PREVENTS OBJECTS FROM BEING CLIPPED)
-            // -------------------------------------------------------------------------
-            float width = Math.Max(1.0f, viewport[2]);
-            float height = Math.Max(1.0f, viewport[3]);
-            float currentAspect = width / height;
-
-            // Target aspect ratio (4:3) where all objects fit comfortably
-            const float referenceAspect = 1024.0f / 768.0f;
-            const float baseDistance = 7.0f;
-
-            // If the window gets narrower than the reference aspect ratio, 
-            // dynamically pull the camera back so the scene scales down to fit horizontally.
-            float cameraDistance = baseDistance;
-            if (currentAspect < referenceAspect)
-            {
-                cameraDistance = baseDistance * (referenceAspect / currentAspect);
-            }
-
-            Matrix4 view_asp = Matrix4.CreateTranslation(0.0f, 0.0f, -cameraDistance);
-            Matrix4 proj_asp = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45.0f), currentAspect, 0.1f, 100.0f);
 
             // Main Camera config
             Matrix4 view = camera.GetViewMatrix();
