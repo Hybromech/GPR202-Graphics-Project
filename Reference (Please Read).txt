@@ -1,0 +1,10 @@
+Created 9/10/2026
+
+References
+
+https://opentk.net/learn
+Content in mylearn modules
+
+
+3D Graphics test program featuring translating 3d objects and dynamic rescaling canvas 
+using Open GL.
