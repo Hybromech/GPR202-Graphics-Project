@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path="Game.cs" />
+    <File Path="Gizmo.cs" />
   </Folder>
   <Project Path="Graphics1.csproj" />
 </Solution>

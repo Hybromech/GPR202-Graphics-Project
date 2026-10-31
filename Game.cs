@@ -34,6 +34,8 @@ namespace Graphics1
         public SkyBox skybox;
         private bool firstMove = false;
         public Vector2 lastMouse; // put in input manager
+        public Grid worldGrid;
+        public Gizmo orientationGizmo;
 
         public Game() : base(GameWindowSettings.Default, NativeWindowSettings.Default)
         {
@@ -310,6 +312,9 @@ namespace Graphics1
         {
             base.OnLoad();
 
+            worldGrid = new Grid(slices: 80, spacing: 1.0f, yLevel: -1.5f);
+            orientationGizmo = new Gizmo();
+
             stopwatch = new Stopwatch();
             stopwatch.Start();
 
@@ -406,6 +411,9 @@ namespace Graphics1
             cylinderMesh?.Dispose();
             sphereMesh?.Dispose();
             torusMesh?.Dispose();
+
+            worldGrid?.Dispose();
+            orientationGizmo?.Dispose();
 
             GL.UseProgram(0);
             GL.DeleteProgram(shaderProgramObject);
@@ -543,8 +551,14 @@ namespace Graphics1
                                   Matrix4.CreateTranslation(interactionPosition);
             //DrawModel(sphereMesh, sphereModel);
 
+            // Draw the world grid with the 3D meshes:
+            worldGrid.Draw(view, projection, camera.Position);
+
             // Render our Skybox
             skybox.Draw(view, projection);
+
+            // Draw the top-right orientation gizmo overlay:
+            orientationGizmo.Draw(view, viewport[2], viewport[3], gizmoSize: 240);
 
             // Send Buffer to display
             Context.SwapBuffers();

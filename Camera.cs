@@ -44,7 +44,7 @@ namespace Graphics1
 
         public float Speed = 45f;
         public float Sensitivity = 0.12f;
-        public float FOV = 45.0f; // Updated to match your 45-degree reference FOV
+        public float FOV = 55.0f; // Updated to match your 45-degree reference FOV
         public float AspectRatio { get; set; }
 
         public Camera(Vector3 pos, int width, int height)
@@ -54,7 +54,7 @@ namespace Graphics1
             ApplyChanges();
         }
 
-        public void UpdateViewport(int width, int height)
+        public void UpdateViewport(float width, float height)
         {
             float w = Math.Max(1.0f, width);
             float h = Math.Max(1.0f, height);
