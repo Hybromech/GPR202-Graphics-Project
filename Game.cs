@@ -48,6 +48,9 @@ namespace Graphics1
             GL.Viewport(0, 0, e.Width, e.Height);
             viewport[2] = e.Width;
             viewport[3] = e.Height;
+
+            // Keep camera aspect ratio synchronized on resize
+            camera?.UpdateViewport(e.Width, e.Height);
         }
 
         #region Procedural Geometry Generators

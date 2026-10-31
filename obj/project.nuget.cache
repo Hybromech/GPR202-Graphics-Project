@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c+dVsFX1vn8=",
+  "dgSpecHash": "rO38gNzYm3E=",
   "success": true,
-  "projectFilePath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\Graphics1.csproj",
+  "projectFilePath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Graphics1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andrew\\.nuget\\packages\\opentk\\4.9.4\\opentk.4.9.4.nupkg.sha512",
     "C:\\Users\\andrew\\.nuget\\packages\\opentk.audio.openal\\4.9.4\\opentk.audio.openal.4.9.4.nupkg.sha512",

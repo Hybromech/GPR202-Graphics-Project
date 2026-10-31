@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\Graphics1.csproj": {}
+    "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Graphics1.csproj": {}
   },
   "projects": {
-    "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\Graphics1.csproj": {
+    "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Graphics1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\Graphics1.csproj",
+        "projectUniqueName": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Graphics1.csproj",
         "projectName": "Graphics1",
-        "projectPath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\Graphics1.csproj",
+        "projectPath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Graphics1.csproj",
         "packagesPath": "C:\\Users\\andrew\\.nuget\\packages\\",
-        "outputPath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\Graphics1\\obj\\",
+        "outputPath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andrew\\AppData\\Roaming\\NuGet\\NuGet.Config",
