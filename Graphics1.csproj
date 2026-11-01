@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.9.4" />
+    <PackageReference Include="SharpGLTF.Core" Version="1.0.7" />
     <PackageReference Include="StbImageSharp" Version="2.30.16" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Models\Drone1.glb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Textures\alien1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -186,6 +186,19 @@
           }
         }
       },
+      "SharpGLTF.Core/1.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/SharpGLTF.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/SharpGLTF.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "StbImageSharp/2.30.16": {
         "type": "package",
         "compile": {
@@ -381,6 +394,28 @@
         "opentk.windowing.graphicslibraryframework.nuspec"
       ]
     },
+    "SharpGLTF.Core/1.0.7": {
+      "sha512": "dZHCUl2jH1ViiLbAwyYbVfZnFqsF1e/9OhZAfLBoggOpqnsbgKQghldK3LnobmtNRp6GNZMyaNkPceqERkqmsQ==",
+      "type": "package",
+      "path": "sharpgltf.core/1.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "glTF2Sharp.png",
+        "lib/net10.0/SharpGLTF.Core.dll",
+        "lib/net10.0/SharpGLTF.Core.xml",
+        "lib/net6.0/SharpGLTF.Core.dll",
+        "lib/net6.0/SharpGLTF.Core.xml",
+        "lib/net8.0/SharpGLTF.Core.dll",
+        "lib/net8.0/SharpGLTF.Core.xml",
+        "lib/netstandard2.0/SharpGLTF.Core.dll",
+        "lib/netstandard2.0/SharpGLTF.Core.xml",
+        "lib/netstandard2.1/SharpGLTF.Core.dll",
+        "lib/netstandard2.1/SharpGLTF.Core.xml",
+        "sharpgltf.core.1.0.7.nupkg.sha512",
+        "sharpgltf.core.nuspec"
+      ]
+    },
     "StbImageSharp/2.30.16": {
       "sha512": "qg1i+NHihXVKLKYacGKrauhSQIGL31eBWcTC4Vc7jnGmBFj87LkRuCdXB5aDZisWMRnB6x2mcfwYXQxMWEG/lw==",
       "type": "package",
@@ -399,6 +434,7 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "OpenTK >= 4.9.4",
+      "SharpGLTF.Core >= 1.0.7",
       "StbImageSharp >= 2.30.16"
     ]
   },
@@ -452,6 +488,10 @@
           "OpenTK": {
             "target": "Package",
             "version": "[4.9.4, )"
+          },
+          "SharpGLTF.Core": {
+            "target": "Package",
+            "version": "[1.0.7, )"
           },
           "StbImageSharp": {
             "target": "Package",

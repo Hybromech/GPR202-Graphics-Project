@@ -30,6 +30,7 @@ namespace Graphics1
         private Mesh cylinderMesh;
         private Mesh sphereMesh;
         private Mesh torusMesh;
+        private Model_Loader customModel1;
         public Camera camera;
         public SkyBox skybox;
         private bool firstMove = false;
@@ -388,6 +389,10 @@ namespace Graphics1
             sphereMesh = CreateSphereMesh();
             torusMesh = CreateTorusMesh();
 
+            // Load Custom Models
+
+            customModel1 = Model_Loader.Load("Models/Drone1.glb");
+
             // Setup Textures
             StbImage.stbi_set_flip_vertically_on_load(1);
             textureMetal = Texture.LoadTexture("metal1.jpg");
@@ -446,6 +451,12 @@ namespace Graphics1
                 mesh.Draw();
             }
 
+            void DrawModel_Custom(Model_Loader ml, Matrix4 modelMatrix)
+            {
+                GL.UniformMatrix4(locModel, true, ref modelMatrix);
+                ml.Draw();
+            }
+
             // -------------------------------------------------------------------------
             // 1. CUBE: Gentle breath + Bobbing
             // -------------------------------------------------------------------------
@@ -466,6 +477,17 @@ namespace Graphics1
                                   Matrix4.CreateRotationY(MathHelper.DegreesToRadians((float)t * 45f)) *
                                   Matrix4.CreateTranslation(new Vector3(0.0f, 1.2f + 0.25f * MathF.Cos((float)t * 0.65f), 0.0f));
             DrawModel(pyramidMesh, pyramidModel);
+
+            // -------------------------------------------------------------------------
+            // DRONE HOVER: Hovering
+            // -------------------------------------------------------------------------
+
+            Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
+                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(1)) *
+                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+                                 Matrix4.CreateTranslation(new Vector3(10.0f, 5.0f,10.0f));
+
+            DrawModel_Custom(customModel1, droneModel);
 
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)

@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[4.9.4, )"
             },
+            "SharpGLTF.Core": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
             "StbImageSharp": {
               "target": "Package",
               "version": "[2.30.16, )"

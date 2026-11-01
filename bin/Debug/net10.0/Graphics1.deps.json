@@ -9,6 +9,7 @@
       "Graphics1/1.0.0": {
         "dependencies": {
           "OpenTK": "4.9.4",
+          "SharpGLTF.Core": "1.0.7",
           "StbImageSharp": "2.30.16"
         },
         "runtime": {
@@ -151,6 +152,14 @@
           }
         }
       },
+      "SharpGLTF.Core/1.0.7": {
+        "runtime": {
+          "lib/net10.0/SharpGLTF.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "StbImageSharp/2.30.16": {
         "runtime": {
           "lib/net8.0/StbImageSharp.dll": {
@@ -243,6 +252,13 @@
       "sha512": "sha512-wNlxnPrD7veMV8EGTTi/sCDeg5V8w/18vC0aw0Ao69eNneD7YSq9Ad+C389rVA957eHNR6Xieu/5qzHQeEOyxQ==",
       "path": "opentk.windowing.graphicslibraryframework/4.9.4",
       "hashPath": "opentk.windowing.graphicslibraryframework.4.9.4.nupkg.sha512"
+    },
+    "SharpGLTF.Core/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dZHCUl2jH1ViiLbAwyYbVfZnFqsF1e/9OhZAfLBoggOpqnsbgKQghldK3LnobmtNRp6GNZMyaNkPceqERkqmsQ==",
+      "path": "sharpgltf.core/1.0.7",
+      "hashPath": "sharpgltf.core.1.0.7.nupkg.sha512"
     },
     "StbImageSharp/2.30.16": {
       "type": "package",
