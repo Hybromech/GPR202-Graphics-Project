@@ -20,6 +20,7 @@ namespace Graphics1
         private int shaderProgramObject;
         protected int textureMetal;
         protected int textureAlien;
+        protected int textureDroneMetal;
         private Stopwatch stopwatch;
         private int[] viewport = new int[4];
         protected bool swapTex = false;
@@ -397,6 +398,7 @@ namespace Graphics1
             StbImage.stbi_set_flip_vertically_on_load(1);
             textureMetal = Texture.LoadTexture("metal1.jpg");
             textureAlien = Texture.LoadTexture("alien1.jpg");
+            textureDroneMetal = Texture.LoadTexture("droneMetal.png");
             swapTex = false;
             Texture.UseTexture(textureMetal);
 
@@ -460,6 +462,7 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             // 1. CUBE: Gentle breath + Bobbing
             // -------------------------------------------------------------------------
+            Texture.UseTexture(textureMetal);
             float cubeScaleVal = 0.9f + 0.18f * MathF.Sin((float)t * 0.8f);
             Matrix4 cubeModel = Matrix4.CreateScale(cubeScaleVal) *
                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)t * 25f)) *
@@ -475,17 +478,17 @@ namespace Graphics1
             Matrix4 pyramidModel = Matrix4.CreateScale(squishXZ, stretchY, squishXZ) *
                                   Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)t * 15f)) *
                                   Matrix4.CreateRotationY(MathHelper.DegreesToRadians((float)t * 45f)) *
-                                  Matrix4.CreateTranslation(new Vector3(0.0f, 1.2f + 0.25f * MathF.Cos((float)t * 0.65f), 0.0f));
+                                  Matrix4.CreateTranslation(new Vector3(10.0f, 1.2f + 0.25f * MathF.Cos((float)t * 0.65f), 0.0f));
             DrawModel(pyramidMesh, pyramidModel);
 
             // -------------------------------------------------------------------------
             // DRONE HOVER: Hovering
             // -------------------------------------------------------------------------
-
+            Texture.UseTexture(textureDroneMetal);
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
-                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(1)) *
+                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(190)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
-                                 Matrix4.CreateTranslation(new Vector3(10.0f, 5.0f,10.0f));
+                                 Matrix4.CreateTranslation(new Vector3(0.0f, 1.0f,-5.0f));
 
             DrawModel_Custom(customModel1, droneModel);
 

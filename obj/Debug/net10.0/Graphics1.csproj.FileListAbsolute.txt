@@ -79,3 +79,4 @@ V:\Andrew\University\Bachelor of Software Engineering\3D Graphics Programming\Pr
 V:\Andrew\University\Bachelor of Software Engineering\3D Graphics Programming\Projects\GPR202-Graphics-Project\obj\Debug\net10.0\ref\Graphics1.dll
 V:\Andrew\University\Bachelor of Software Engineering\3D Graphics Programming\Projects\GPR202-Graphics-Project\bin\Debug\net10.0\SharpGLTF.Core.dll
 V:\Andrew\University\Bachelor of Software Engineering\3D Graphics Programming\Projects\GPR202-Graphics-Project\bin\Debug\net10.0\Models\Drone1.glb
+V:\Andrew\University\Bachelor of Software Engineering\3D Graphics Programming\Projects\GPR202-Graphics-Project\bin\Debug\net10.0\Textures\droneMetal.png
