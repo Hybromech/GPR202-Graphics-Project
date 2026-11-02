@@ -33,7 +33,7 @@ namespace Graphics1
         private Mesh sphereMesh;
         private Mesh torusMesh;
         private Model_Loader customModel1;
-
+        private float armRot_offset = 0;
         private Model_Loader customModel2;
         public Camera camera;
         public SkyBox skybox;
@@ -493,7 +493,7 @@ namespace Graphics1
             Texture.UseTexture(textureDroneMetal);
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
                                  Matrix4.CreateRotationX(MathHelper.DegreesToRadians(120)) *
-                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(120 * MathF.Cos((float)t * 0.20f))) *
                                  Matrix4.CreateTranslation(DronePosition);
 
             DrawModel_Custom(customModel1, droneModel);
@@ -503,21 +503,21 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             float armLength = customModel2.GetLength(2);
             float halfArmLen = armLength / 2.0f;
-
             Texture.UseTexture(textureMetal);
-            Matrix4 armModel = Matrix4.CreateScale(0.5f, 0.5f, 0.5f) *
-                                 Matrix4.CreateTranslation(new Vector3(0.05f, 1.5f, 0.7f)) *
-                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(290)) * // 190
-                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1));
-                                 
-            // Shift the cylinder so the *end* sits at (0,0,0) instead of the center
 
-            Matrix4.CreateTranslation(0.0f, 0.0f, -halfArmLen);
-
-            armModel = armModel * droneModel; // Parrent Arm to Drone.
+            Matrix4 armModel =
+             // Scale the arm
+             Matrix4.CreateScale(0.5f, 0.5f, 0.5f) *
+             // Rotate the arm
+             Matrix4.CreateRotationX(MathHelper.DegreesToRadians(armRot_offset)) *
+             Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+             // Position it relative to the drone (adjust these numbers to close the gap)
+             Matrix4.CreateTranslation(new Vector3(0.07f, 2.0f, 0.0f)) *
+             // Parent to the drone
+             droneModel;
 
             DrawModel_Custom(customModel2, armModel);
-            
+
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)
             // =========================================================================
@@ -653,6 +653,15 @@ namespace Graphics1
                     camera.Yaw += deltaX * camera.Sensitivity;
                     camera.Pitch -= deltaY * camera.Sensitivity;
                 }
+            }
+
+            if (input.IsKeyDown(Keys.Left))
+            {
+                armRot_offset -= 0.5f;
+            }
+            if (input.IsKeyDown(Keys.Right))
+            {
+                armRot_offset += 0.5f;
             }
 
             // Close program when escape is pressed

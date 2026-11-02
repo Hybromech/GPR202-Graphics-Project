@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Game.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
               "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAOUBAAAAAAAAAAAQwAMCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAIAwwOUBAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-31T06:20:21.808Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "Model_Loader.cs",
               "ViewState": "AgIAAJcAAAAAAAAAAAApwK4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-01T03:59:13.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-01T03:59:13.431Z"
             },
             {
               "$type": "Document",
@@ -116,8 +115,7 @@
               "RelativeToolTip": "Gizmo.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAmwF0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T09:31:33.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T09:31:33.735Z"
             },
             {
               "$type": "Document",
@@ -129,8 +127,7 @@
               "RelativeToolTip": "Grid.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAswG0AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T09:30:53.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T09:30:53.256Z"
             },
             {
               "$type": "Document",
@@ -142,8 +139,7 @@
               "RelativeToolTip": "Camera.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAADwvy4AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T06:26:12.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T06:26:12.374Z"
             }
           ]
         }
