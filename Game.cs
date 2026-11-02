@@ -32,6 +32,8 @@ namespace Graphics1
         private Mesh sphereMesh;
         private Mesh torusMesh;
         private Model_Loader customModel1;
+
+        private Model_Loader customModel2;
         public Camera camera;
         public SkyBox skybox;
         private bool firstMove = false;
@@ -393,6 +395,7 @@ namespace Graphics1
             // Load Custom Models
 
             customModel1 = Model_Loader.Load("Models/Drone1.glb");
+            customModel2 = Model_Loader.Load("Models/Arm.glb");
 
             // Setup Textures
             StbImage.stbi_set_flip_vertically_on_load(1);
@@ -486,11 +489,22 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             Texture.UseTexture(textureDroneMetal);
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
-                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(190)) *
+                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(120)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
-                                 Matrix4.CreateTranslation(new Vector3(0.0f, 1.0f,-5.0f));
+                                 Matrix4.CreateTranslation(new Vector3(0.0f, 0.3f * MathF.Cos((float)t * 0.80f), -5.0f));
 
             DrawModel_Custom(customModel1, droneModel);
+
+            // -------------------------------------------------------------------------
+            // DRONE Arm: Child
+            // -------------------------------------------------------------------------
+            Texture.UseTexture(textureDroneMetal);
+            Matrix4 armModel = Matrix4.CreateScale(1, 1, 1) *
+                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(190)) *
+                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+                                 Matrix4.CreateTranslation(new Vector3(0.0f, 0.0f, 0.0f));
+
+            DrawModel_Custom(customModel2, armModel);
 
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)
@@ -581,6 +595,17 @@ namespace Graphics1
                 swapTex = !swapTex;
                 Texture.UseTexture((!swapTex == false) ? textureAlien : textureMetal);
             }
+            //-------- Fly Camera --------
+       
+            // 3. Apply movement
+            float speed = 0.001f;
+            if (input.IsKeyDown(Keys.W)) camera.Position += camera.Front * speed;
+            if (input.IsKeyDown(Keys.S)) camera.Position -= camera.Front * speed;
+            if (input.IsKeyDown(Keys.A)) camera.Position -= camera.Right * speed;
+            if (input.IsKeyDown(Keys.D)) camera.Position += camera.Right * speed;
+            if (input.IsKeyDown(Keys.E)) camera.Position += camera.Up * speed;
+            if (input.IsKeyDown(Keys.Q)) camera.Position -= camera.Up * speed;
+
             // Toggle camera looking
             if (input.IsKeyPressed(Keys.LeftControl))
             {
