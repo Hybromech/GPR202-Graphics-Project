@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\skybox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:skybox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\texture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Game.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
               "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAANEBAAAAAAAAAAAAAOABAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAANoBAAAAAAAAAAApwPQBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-31T06:20:21.808Z",
               "EditorCaption": ""
@@ -71,20 +71,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Model_Loader.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Model_Loader.cs",
               "RelativeDocumentMoniker": "Model_Loader.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Model_Loader.cs",
               "RelativeToolTip": "Model_Loader.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwA8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-01T03:59:13.431Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Mesh.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Mesh.cs",
               "RelativeDocumentMoniker": "Mesh.cs",
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "SkyBox.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\SkyBox.cs",
               "RelativeDocumentMoniker": "SkyBox.cs",
@@ -132,16 +132,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Camera.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Camera.cs",
               "RelativeDocumentMoniker": "Camera.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Camera.cs",
               "RelativeToolTip": "Camera.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwvy4AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T06:26:12.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-31T06:26:12.374Z"
             }
           ]
         }

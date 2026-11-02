@@ -53,13 +53,13 @@ public class Model_Loader : IDisposable
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, Vertex.SizeInBytes, 0);
 
-            // Attribute 1: Normal (vec3)
+            // Attribute 1: TexCoords (vec2) - Mapped to location 1 to match Game.cs shader
             GL.EnableVertexAttribArray(1);
-            GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, Vertex.SizeInBytes, 3 * sizeof(float));
+            GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, Vertex.SizeInBytes, 6 * sizeof(float));
 
-            // Attribute 2: TexCoords (vec2)
+            // Attribute 2: Normal (vec3) - Mapped to location 2
             GL.EnableVertexAttribArray(2);
-            GL.VertexAttribPointer(2, 2, VertexAttribPointerType.Float, false, Vertex.SizeInBytes, 6 * sizeof(float));
+            GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, Vertex.SizeInBytes, 3 * sizeof(float));
 
             GL.BindVertexArray(0);
         }
@@ -86,7 +86,6 @@ public class Model_Loader : IDisposable
         var loader = new Model_Loader();
         var model = ModelRoot.Load(filePath);
 
-        // Process default scene or the first available scene
         var scene = model.DefaultScene ?? model.LogicalScenes[0];
 
         foreach (var node in scene.VisualChildren)
@@ -119,7 +118,14 @@ public class Model_Loader : IDisposable
                 {
                     Vector3 pos = posAccessor[i];
                     Vector3 norm = normAccessor != null && i < normAccessor.Count ? normAccessor[i] : Vector3.UnitY;
-                    Vector2 uv = uvAccessor != null && i < uvAccessor.Count ? uvAccessor[i] : Vector2.Zero;
+
+                    // Invert V coordinate for OpenGL convention (glTF origin is top-left)
+                    Vector2 uv = Vector2.Zero;
+                    if (uvAccessor != null && i < uvAccessor.Count)
+                    {
+                        var rawUv = uvAccessor[i];
+                        uv = new Vector2(rawUv.X, 1.0f - rawUv.Y);
+                    }
 
                     vertices.Add(new Vertex(pos, norm, uv));
                 }
@@ -134,7 +140,6 @@ public class Model_Loader : IDisposable
                 }
                 else
                 {
-                    // If no index buffer is present, generate sequential indices
                     for (uint i = 0; i < vertices.Count; i++)
                     {
                         indices.Add(i);

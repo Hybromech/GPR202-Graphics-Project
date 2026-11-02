@@ -487,22 +487,24 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             // DRONE HOVER: Hovering
             // -------------------------------------------------------------------------
+            Vector3 DronePosition = new Vector3(0.0f, 0.3f * MathF.Cos((float)t * 0.80f), -5.0f);
+            
             Texture.UseTexture(textureDroneMetal);
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
                                  Matrix4.CreateRotationX(MathHelper.DegreesToRadians(120)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
-                                 Matrix4.CreateTranslation(new Vector3(0.0f, 0.3f * MathF.Cos((float)t * 0.80f), -5.0f));
+                                 Matrix4.CreateTranslation(DronePosition);
 
             DrawModel_Custom(customModel1, droneModel);
-
+            
             // -------------------------------------------------------------------------
             // DRONE Arm: Child
             // -------------------------------------------------------------------------
-            Texture.UseTexture(textureDroneMetal);
-            Matrix4 armModel = Matrix4.CreateScale(1, 1, 1) *
+            Texture.UseTexture(textureMetal);
+            Matrix4 armModel = Matrix4.CreateScale(0.5f, 0.5f, 0.5f) *
                                  Matrix4.CreateRotationX(MathHelper.DegreesToRadians(190)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
-                                 Matrix4.CreateTranslation(new Vector3(0.0f, 0.0f, 0.0f));
+                                 Matrix4.CreateTranslation(DronePosition + new Vector3(0.05f, 1.5f, 1.0f));
 
             DrawModel_Custom(customModel2, armModel);
 

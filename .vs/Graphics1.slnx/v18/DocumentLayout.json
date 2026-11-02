@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|solutionrelative:model_loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1074B4C3-985C-F314-A020-8D32DF8F68C5}|Graphics1.csproj|v:\\andrew\\university\\bachelor of software engineering\\3d graphics programming\\projects\\gpr202-graphics-project\\mesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,19 +42,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Game.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
               "RelativeDocumentMoniker": "Game.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
               "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAMgBAAAAAAAAAADwv+EBAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAANoBAAAAAAAAAAApwPQBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T06:20:21.808Z"
+              "WhenOpened": "2026-10-31T06:20:21.808Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -70,13 +71,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Model_Loader.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Model_Loader.cs",
               "RelativeDocumentMoniker": "Model_Loader.cs",
               "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Model_Loader.cs",
               "RelativeToolTip": "Model_Loader.cs",
-              "ViewState": "AgIAACMAAACgxK2CGC45wGAAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAUwA8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-01T03:59:13.431Z",
               "EditorCaption": ""
