@@ -8,6 +8,10 @@ using PrimitiveType = OpenTK.Graphics.OpenGL4.PrimitiveType;
 
 public class Model_Loader : IDisposable
 {
+    // Bounding box properties to track model dimensions
+    public Vector3 MinBounds { get; private set; } = new Vector3(float.MaxValue);
+    public Vector3 MaxBounds { get; private set; } = new Vector3(float.MinValue);
+
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct Vertex
     {
@@ -128,6 +132,13 @@ public class Model_Loader : IDisposable
                     }
 
                     vertices.Add(new Vertex(pos, norm, uv));
+
+                    // Track bounding box bounds using transformed vertex positions
+                    Vector4 transformedPos4 = Vector4.Transform(new Vector4(pos, 1.0f), localTransform);
+                    Vector3 transformedPos = new Vector3(transformedPos4.X, transformedPos4.Y, transformedPos4.Z);
+
+                    MinBounds = Vector3.Min(MinBounds, transformedPos);
+                    MaxBounds = Vector3.Max(MaxBounds, transformedPos);
                 }
 
                 var indexAccessor = primitive.GetIndices();
@@ -157,6 +168,14 @@ public class Model_Loader : IDisposable
         {
             ProcessNode(child, localTransform);
         }
+    }
+
+    // Helper method to retrieve model length along a specific axis (0 = X, 1 = Y, 2 = Z)
+    public float GetLength(int axis)
+    {
+        if (axis == 0) return MaxBounds.X - MinBounds.X;
+        if (axis == 1) return MaxBounds.Y - MinBounds.Y;
+        return MaxBounds.Z - MinBounds.Z;
     }
 
     public void Draw()

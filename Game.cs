@@ -9,6 +9,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using StbImageSharp;
 using System.IO.Enumeration;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace Graphics1
 {
@@ -496,18 +497,27 @@ namespace Graphics1
                                  Matrix4.CreateTranslation(DronePosition);
 
             DrawModel_Custom(customModel1, droneModel);
-            
+
             // -------------------------------------------------------------------------
             // DRONE Arm: Child
             // -------------------------------------------------------------------------
+            float armLength = customModel2.GetLength(2);
+            float halfArmLen = armLength / 2.0f;
+
             Texture.UseTexture(textureMetal);
             Matrix4 armModel = Matrix4.CreateScale(0.5f, 0.5f, 0.5f) *
-                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(190)) *
-                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
-                                 Matrix4.CreateTranslation(DronePosition + new Vector3(0.05f, 1.5f, 1.0f));
+                                 Matrix4.CreateTranslation(new Vector3(0.05f, 1.5f, 0.7f)) *
+                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians(290)) * // 190
+                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1));
+                                 
+            // Shift the cylinder so the *end* sits at (0,0,0) instead of the center
+
+            Matrix4.CreateTranslation(0.0f, 0.0f, -halfArmLen);
+
+            armModel = armModel * droneModel; // Parrent Arm to Drone.
 
             DrawModel_Custom(customModel2, armModel);
-
+            
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)
             // =========================================================================
