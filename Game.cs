@@ -404,7 +404,7 @@ namespace Graphics1
             textureAlien = Texture.LoadTexture("alien1.jpg");
             textureDroneMetal = Texture.LoadTexture("droneMetal.png");
             swapTex = false;
-            Texture.UseTexture(textureMetal);
+            Texture.UseTexture(textureDroneMetal);
 
             // Setup camera
             camera = new Camera(Vector3.UnitZ * 3, viewport[2], viewport[3]);
@@ -466,7 +466,7 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             // 1. CUBE: Gentle breath + Bobbing
             // -------------------------------------------------------------------------
-            Texture.UseTexture(textureMetal);
+            
             float cubeScaleVal = 0.9f + 0.18f * MathF.Sin((float)t * 0.8f);
             Matrix4 cubeModel = Matrix4.CreateScale(cubeScaleVal) *
                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)t * 25f)) *
@@ -490,7 +490,6 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             Vector3 DronePosition = new Vector3(0.0f, 0.3f * MathF.Cos((float)t * 0.80f), -5.0f);
             
-            Texture.UseTexture(textureDroneMetal);
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
                                  Matrix4.CreateRotationX(MathHelper.DegreesToRadians(120)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(120 * MathF.Cos((float)t * 0.20f))) *
@@ -503,7 +502,6 @@ namespace Graphics1
             // -------------------------------------------------------------------------
             float armLength = customModel2.GetLength(2);
             float halfArmLen = armLength / 2.0f;
-            Texture.UseTexture(textureMetal);
 
             Matrix4 armModel =
              // Scale the arm
@@ -605,7 +603,7 @@ namespace Graphics1
             if (input.IsKeyReleased(Keys.Space)) // Swap Textures on keypress
             {
                 swapTex = !swapTex;
-                Texture.UseTexture((!swapTex == false) ? textureAlien : textureMetal);
+                Texture.UseTexture((!swapTex == false) ? textureAlien : textureDroneMetal);
             }
             //-------- Fly Camera --------
        
