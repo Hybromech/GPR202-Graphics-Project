@@ -22,6 +22,9 @@ namespace Graphics1
         protected int textureMetal;
         protected int textureAlien;
         protected int textureDroneMetal;
+
+        protected int textureGrass;
+        protected int textureWindow;
         private Stopwatch stopwatch;
         private int[] viewport = new int[4];
         protected bool swapTex = false;
@@ -32,9 +35,11 @@ namespace Graphics1
         private Mesh cylinderMesh;
         private Mesh sphereMesh;
         private Mesh torusMesh;
-        private Model_Loader customModel1;
         private float armRot_offset = 0;
-        private Model_Loader customModel2;
+        private float sawRot_offset = 0;
+        private Model_Loader DroneModel;
+        private Model_Loader ArmModel;
+        private Model_Loader SawModel;
         public Camera camera;
         public SkyBox skybox;
         private bool firstMove = false;
@@ -395,17 +400,20 @@ namespace Graphics1
 
             // Load Custom Models
 
-            customModel1 = Model_Loader.Load("Models/Drone1.glb");
-            customModel2 = Model_Loader.Load("Models/Arm.glb");
+            DroneModel = Model_Loader.Load("Models/Drone1.glb");
+            ArmModel = Model_Loader.Load("Models/Arm.glb");
+            SawModel = Model_Loader.Load("Models/Saw.glb");
 
             // Setup Textures
             StbImage.stbi_set_flip_vertically_on_load(1);
             textureMetal = Texture.LoadTexture("metal1.jpg");
             textureAlien = Texture.LoadTexture("alien1.jpg");
             textureDroneMetal = Texture.LoadTexture("droneMetal.png");
+            textureGrass = Texture.LoadTexture("grass.png");
+            textureWindow = Texture.LoadTexture("window.png");
             swapTex = false;
-            Texture.UseTexture(textureDroneMetal);
-
+            Texture.UseTexture(textureDroneMetal );
+            
             // Setup camera
             camera = new Camera(Vector3.UnitZ * 3, viewport[2], viewport[3]);
 
@@ -493,14 +501,14 @@ namespace Graphics1
             Matrix4 droneModel = Matrix4.CreateScale(1, 1, 1) *
                                  Matrix4.CreateRotationX(MathHelper.DegreesToRadians(120)) *
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(120 * MathF.Cos((float)t * 0.20f))) *
+                                 //Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
                                  Matrix4.CreateTranslation(DronePosition);
-
-            DrawModel_Custom(customModel1, droneModel);
+            DrawModel_Custom(DroneModel, droneModel);
 
             // -------------------------------------------------------------------------
-            // DRONE Arm: Child
+            // DRONE Arm: Child of Drone
             // -------------------------------------------------------------------------
-            float armLength = customModel2.GetLength(2);
+            float armLength = ArmModel.GetLength(2);
             float halfArmLen = armLength / 2.0f;
 
             Matrix4 armModel =
@@ -509,12 +517,31 @@ namespace Graphics1
              // Rotate the arm
              Matrix4.CreateRotationX(MathHelper.DegreesToRadians(armRot_offset)) *
              Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+              Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(1)) *
              // Position it relative to the drone (adjust these numbers to close the gap)
              Matrix4.CreateTranslation(new Vector3(0.07f, 2.0f, 0.0f)) *
              // Parent to the drone
              droneModel;
 
-            DrawModel_Custom(customModel2, armModel);
+            DrawModel_Custom(ArmModel, armModel);
+
+            // -------------------------------------------------------------------------
+            //  Saw Blade: Child of Arm
+            // -------------------------------------------------------------------------
+
+            Matrix4 sawModel =
+             // Scale the Saw
+             Matrix4.CreateScale(1.7f, 1.7f, 1.7f) *
+             // Rotate the Saw
+             Matrix4.CreateRotationX(MathHelper.DegreesToRadians(1)) *
+             Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
+             Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(sawRot_offset)) *
+             // Position it relative to the Arm (adjust these numbers to close the gap)
+             Matrix4.CreateTranslation(new Vector3(0.07f, 2.0f, 0.0f)) *
+             // Parent to the Arm
+             armModel;
+
+            DrawModel_Custom(SawModel, sawModel);
 
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)
@@ -577,6 +604,10 @@ namespace Graphics1
                                   Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(45.0f)) *
                                   Matrix4.CreateRotationX(MathHelper.DegreesToRadians(25.0f)) *
                                   Matrix4.CreateTranslation(interactionPosition);
+
+            // ----- Render Grass -----
+            //GL.BindTexture()
+
             //DrawModel(sphereMesh, sphereModel);
 
             // Draw the world grid with the 3D meshes:
@@ -660,6 +691,10 @@ namespace Graphics1
             if (input.IsKeyDown(Keys.Right))
             {
                 armRot_offset += 0.5f;
+            }
+            if (input.IsKeyDown(Keys.C))
+            {
+                sawRot_offset += 1.5f;
             }
 
             // Close program when escape is pressed
