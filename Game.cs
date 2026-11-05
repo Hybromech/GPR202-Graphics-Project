@@ -16,7 +16,7 @@ namespace Graphics1
     // Helper class to encapsulate OpenGL vertex buffers for each 3D shape
 
 
-    public class Game : GameWindow
+    public partial class Game : GameWindow
     {
         private int shaderProgramObject;
         protected int textureMetal;
@@ -27,8 +27,9 @@ namespace Graphics1
         protected int textureWindow;
         private Stopwatch stopwatch;
         private int[] viewport = new int[4];
+        private List<int> textures = new List<int>();
         protected bool swapTex = false;
-
+        
         // 3D Meshes
         private Mesh cubeMesh;
         private Mesh pyramidMesh;
@@ -46,7 +47,6 @@ namespace Graphics1
         public Vector2 lastMouse; // put in input manager
         public Grid worldGrid;
         public Gizmo orientationGizmo;
-
         public Game() : base(GameWindowSettings.Default, NativeWindowSettings.Default)
         {
             Vector2i windowSize = new Vector2i(1024, 768);
@@ -412,8 +412,20 @@ namespace Graphics1
             textureGrass = Texture.LoadTexture("grass.png");
             textureWindow = Texture.LoadTexture("window.png");
             swapTex = false;
-            Texture.UseTexture(textureDroneMetal );
-            
+
+            textures.Add(textureMetal);
+            textures.Add(textureAlien);
+            textures.Add(textureDroneMetal);
+            textures.Add(textureGrass);
+            textures.Add(textureWindow);
+          
+            obj_drone = new Object(); obj_drone.texture = textureDroneMetal;
+            obj_arm = new Object(); obj_arm.texture = textureMetal;
+            obj_saw = new Object(); obj_saw.texture = textureMetal;
+            obj_cube = new Object(); obj_cube.texture = textureMetal;
+            obj_pyramid = new Object(); obj_pyramid.texture = textureMetal;
+            objects.Add(obj_drone); objects.Add(obj_arm); objects.Add(obj_saw); objects.Add(obj_cube); objects.Add(obj_pyramid);
+      
             // Setup camera
             camera = new Camera(Vector3.UnitZ * 3, viewport[2], viewport[3]);
 
@@ -459,17 +471,6 @@ namespace Graphics1
             GL.UniformMatrix4(locView, true, ref view);
             GL.UniformMatrix4(locProj, true, ref projection);
 
-            void DrawModel(Mesh mesh, Matrix4 modelMatrix)
-            {
-                GL.UniformMatrix4(locModel, true, ref modelMatrix);
-                mesh.Draw();
-            }
-
-            void DrawModel_Custom(Model_Loader ml, Matrix4 modelMatrix)
-            {
-                GL.UniformMatrix4(locModel, true, ref modelMatrix);
-                ml.Draw();
-            }
 
             // -------------------------------------------------------------------------
             // 1. CUBE: Gentle breath + Bobbing
@@ -480,7 +481,7 @@ namespace Graphics1
                                 Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)t * 25f)) *
                                 Matrix4.CreateRotationY(MathHelper.DegreesToRadians((float)t * 35f)) *
                                 Matrix4.CreateTranslation(new Vector3(-2.6f, 1.2f + 0.25f * MathF.Sin((float)t * 0.7f), 0.0f));
-            DrawModel(cubeMesh, cubeModel);
+            obj_cube.DrawModel(cubeMesh, cubeModel, locModel);
 
             // -------------------------------------------------------------------------
             // 2. PYRAMID: Accordion stretch + Bobbing
@@ -491,7 +492,7 @@ namespace Graphics1
                                   Matrix4.CreateRotationX(MathHelper.DegreesToRadians((float)t * 15f)) *
                                   Matrix4.CreateRotationY(MathHelper.DegreesToRadians((float)t * 45f)) *
                                   Matrix4.CreateTranslation(new Vector3(10.0f, 1.2f + 0.25f * MathF.Cos((float)t * 0.65f), 0.0f));
-            DrawModel(pyramidMesh, pyramidModel);
+            obj_pyramid.DrawModel(pyramidMesh, pyramidModel, locModel);
 
             // -------------------------------------------------------------------------
             // DRONE HOVER: Hovering
@@ -503,7 +504,8 @@ namespace Graphics1
                                  Matrix4.CreateRotationY(MathHelper.DegreesToRadians(120 * MathF.Cos((float)t * 0.20f))) *
                                  //Matrix4.CreateRotationY(MathHelper.DegreesToRadians(1)) *
                                  Matrix4.CreateTranslation(DronePosition);
-            DrawModel_Custom(DroneModel, droneModel);
+           
+            obj_drone.DrawModel_Custom(DroneModel, droneModel, locModel);
 
             // -------------------------------------------------------------------------
             // DRONE Arm: Child of Drone
@@ -523,7 +525,7 @@ namespace Graphics1
              // Parent to the drone
              droneModel;
 
-            DrawModel_Custom(ArmModel, armModel);
+            obj_arm.DrawModel_Custom(ArmModel, armModel, locModel);
 
             // -------------------------------------------------------------------------
             //  Saw Blade: Child of Arm
@@ -541,7 +543,7 @@ namespace Graphics1
              // Parent to the Arm
              armModel;
 
-            DrawModel_Custom(SawModel, sawModel);
+            obj_saw.DrawModel_Custom(SawModel, sawModel, locModel);
 
             // =========================================================================
             // 3, 4 & 5. NUCLEUS SYSTEM: DOUGHNUT, CYLINDER & ORBITING SPHERE (ELECTRON)
@@ -696,7 +698,36 @@ namespace Graphics1
             {
                 sawRot_offset += 1.5f;
             }
-
+            if (input.IsKeyPressed(Keys.T))
+            {
+                if (textureIndex < textures.Count - 1) // check to not exceed array
+                {
+                    textureIndex++;
+                    Console.WriteLine("textureIndex " + textureIndex);
+                }
+                else textureIndex = 0;
+            }
+            if (input.IsKeyPressed(Keys.KeyPad0))
+            {
+                objects[0].texture = textures[textureIndex];
+            }
+            if (input.IsKeyPressed(Keys.KeyPad1))
+            {
+                objects[1].texture = textures[textureIndex];
+            }
+            if (input.IsKeyPressed(Keys.KeyPad2))
+            {
+                objects[2].texture = textures[textureIndex];
+            }
+            if (input.IsKeyPressed(Keys.KeyPad3))
+            {
+                objects[3].texture = textures[textureIndex];
+            }
+            if (input.IsKeyPressed(Keys.KeyPad4))
+            {
+                objects[4].texture = textures[textureIndex];
+            }
+          
             // Close program when escape is pressed
             {
                 if (input.IsKeyPressed(Keys.Escape))
