@@ -41,6 +41,12 @@ namespace Graphics1
         public SkyBox skybox;
         private bool firstMove = false;
         public Vector2 lastMouse;
+
+        // --- Camera Smoothing Target Variables ---
+        private float targetYaw = -90.0f;
+        private float targetPitch = 0.0f;
+        private float cameraSmoothness = 25.0f; // Higher = tighter/faster, Lower = smoother/looser
+
         public Grid worldGrid;
         public Gizmo orientationGizmo;
 
@@ -153,6 +159,9 @@ namespace Graphics1
             objects.Add(obj_pyramid);
 
             camera = new Camera(Vector3.UnitZ * 3, viewport[2], viewport[3]);
+            targetYaw = camera.Yaw;
+            targetPitch = camera.Pitch;
+
             skybox = new SkyBox();
         }
 
@@ -162,10 +171,6 @@ namespace Graphics1
 
             cubeMesh?.Dispose();
             pyramidMesh?.Dispose();
-            //cylinderMesh?.Dispose();
-            //sphereMesh?.Dispose();
-            //torusMesh?.Dispose();
-
             worldGrid?.Dispose();
             orientationGizmo?.Dispose();
             shaderProgram?.Dispose();
@@ -254,16 +259,15 @@ namespace Graphics1
                 swapTex = !swapTex;
             }
 
-            //-----Camera-----
-
-            float speed = 5;//0.001f;
+            // ----- Camera Movement -----
+            float speed = 5.0f;
             if (input.IsKeyDown(Keys.W)) camera.Position += camera.Front * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.S)) camera.Position -= camera.Front * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.A)) camera.Position -= camera.Right * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.D)) camera.Position += camera.Right * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.E)) camera.Position += camera.Up * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.Q)) camera.Position -= camera.Up * speed * (float)args.Time;
-            
+
             if (input.IsKeyPressed(Keys.LeftControl))
             {
                 camera.CursorControl = !camera.CursorControl;
@@ -277,6 +281,8 @@ namespace Graphics1
                 if (firstMove)
                 {
                     lastMouse = new Vector2(mouse.X, mouse.Y);
+                    targetYaw = camera.Yaw;
+                    targetPitch = camera.Pitch;
                     firstMove = false;
                 }
                 else
@@ -285,10 +291,16 @@ namespace Graphics1
                     float deltaY = mouse.Y - lastMouse.Y;
                     lastMouse = new Vector2(mouse.X, mouse.Y);
 
-                    camera.Yaw += deltaX * camera.Sensitivity ;
-                    camera.Pitch -= deltaY * camera.Sensitivity;
+                    // Accumulate raw input into targets
+                    targetYaw += deltaX * camera.Sensitivity;
+                    targetPitch -= deltaY * camera.Sensitivity;
                 }
             }
+
+            // Smoothly interpolate actual camera angles toward target angles using frame-rate independent lerping
+            float lerpFactor = MathHelper.Clamp(cameraSmoothness * (float)args.Time, 0.0f, 1.0f);
+            camera.Yaw = MathHelper.Lerp(camera.Yaw, targetYaw, lerpFactor);
+            camera.Pitch = MathHelper.Lerp(camera.Pitch, targetPitch, lerpFactor);
 
             if (input.IsKeyDown(Keys.Left)) armRot_offset -= 0.5f;
             if (input.IsKeyDown(Keys.Right)) armRot_offset += 0.5f;

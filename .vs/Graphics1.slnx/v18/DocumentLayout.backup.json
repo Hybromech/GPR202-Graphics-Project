@@ -66,9 +66,9 @@
               "Title": "Game.cs",
               "DocumentMoniker": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
               "RelativeDocumentMoniker": "Game.cs",
-              "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs",
-              "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAPIAAAAAAAAAAAAiwAMBAABkAAAAAAAAAA==",
+              "ToolTip": "V:\\Andrew\\University\\Bachelor of Software Engineering\\3D Graphics Programming\\Projects\\GPR202-Graphics-Project\\Game.cs*",
+              "RelativeToolTip": "Game.cs*",
+              "ViewState": "AgIAACMAAAAAAAAAAAAUwC8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-31T06:20:21.808Z",
               "EditorCaption": ""
@@ -83,8 +83,7 @@
               "RelativeToolTip": "MeshBuilder.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:46:44.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:46:44.232Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "Camera.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:43:32.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:43:32.74Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "Gizmo.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:43:06.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:43:06.802Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "Grid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:42:47.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:42:47.599Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "Model_Loader.cs",
               "ViewState": "AgIAAH8AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:42:02.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:42:02.589Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "Scene.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:41:12.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:41:12.194Z"
             },
             {
               "$type": "Document",
@@ -161,8 +155,7 @@
               "RelativeToolTip": "Texture.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:40:17.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:40:17.966Z"
             },
             {
               "$type": "Document",
@@ -174,8 +167,7 @@
               "RelativeToolTip": "Mesh.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:18:06.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:18:06.117Z"
             },
             {
               "$type": "Document",
@@ -187,8 +179,7 @@
               "RelativeToolTip": "ShaderManager.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAwwCwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:14:55.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:14:55.979Z"
             },
             {
               "$type": "Document",
@@ -200,8 +191,7 @@
               "RelativeToolTip": "TextureLoader.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwAkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:14:04.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:14:04.15Z"
             },
             {
               "$type": "Document",
@@ -213,8 +203,7 @@
               "RelativeToolTip": "Object.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-05T03:13:32.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-05T03:13:32.944Z"
             }
           ]
         }
