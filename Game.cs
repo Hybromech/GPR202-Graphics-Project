@@ -225,7 +225,7 @@ namespace Graphics1
                                Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(1)) *
                                Matrix4.CreateTranslation(new Vector3(0.07f, 2.0f, 0.0f)) *
                                droneModel;
-
+            
             obj_arm.DrawModel_Custom(ArmModel, armModel, locModel);
 
             // Saw Blade
@@ -268,6 +268,10 @@ namespace Graphics1
             if (input.IsKeyDown(Keys.E)) camera.Position += camera.Up * speed * (float)args.Time;
             if (input.IsKeyDown(Keys.Q)) camera.Position -= camera.Up * speed * (float)args.Time;
 
+            if (input.IsKeyPressed(Keys.R))
+            {
+                Console.WriteLine(armRot_offset);
+            }
             if (input.IsKeyPressed(Keys.LeftControl))
             {
                 camera.CursorControl = !camera.CursorControl;
@@ -302,9 +306,9 @@ namespace Graphics1
             camera.Yaw = MathHelper.Lerp(camera.Yaw, targetYaw, lerpFactor);
             camera.Pitch = MathHelper.Lerp(camera.Pitch, targetPitch, lerpFactor);
 
-            if (input.IsKeyDown(Keys.Left)) armRot_offset -= 0.5f;
-            if (input.IsKeyDown(Keys.Right)) armRot_offset += 0.5f;
-            if (input.IsKeyDown(Keys.C)) sawRot_offset += 1.5f;
+            if (input.IsKeyDown(Keys.Left) && armRot_offset > -179) armRot_offset -= 100.0f * (float)args.Time; // Add constraint for arm
+            if (input.IsKeyDown(Keys.Right) && armRot_offset < 149) armRot_offset += 100.0f * (float)args.Time; // Add constraint for arm
+            if (input.IsKeyDown(Keys.C)) sawRot_offset += 1000.0f * (float)args.Time;
 
             if (input.IsKeyPressed(Keys.T))
             {
